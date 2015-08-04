@@ -5,8 +5,8 @@
         <th>Title</th>
     </tr>
     <tr>
-        <td><input type="text" ng-model="filters.author" ng-model-options="{ debounce: 250 }" ng-change="update('author')"></td>
-        <td><input type="text" ng-model="filters.title" ng-model-options="{ debounce: 250 }" ng-change="update('title')"></td>
+        <td><filter-field filters="filters" field="author"></filter-field></td>
+        <td><filter-field filters="filters" field="title"></filter-field></td>
     </tr>
     <tr ng-repeat="book in books">
         <td>{{ book.author }}</td>
