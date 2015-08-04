@@ -1,12 +1,15 @@
 'use strict';
 angular.module('ngdemoApp')
-    .controller('MainCtrl', function ($scope) {
+    .controller('MainCtrl', function ($scope, BookService) {
 
-        // some data for the table
-        $scope.books = [
-            {author: 'J.R.R. Tolkien', title: 'The Hobbit'},
-            {author: 'Douglas Adams', title: "Hitchhiker's Guide to the Galaxy"},
-            {author: 'Herman Melville', title: 'Moby Dick'},
-        ];
+        // a simple filter object, with default filter values
+        $scope.filters = { author: '', title: '' };
 
+        
+        $scope.update = function() {
+            BookService.all($scope.filters).then(function(data) {
+                $scope.books = data;
+            });
+        }
+        $scope.update();
     });

@@ -4,6 +4,10 @@
         <th>Author</th>
         <th>Title</th>
     </tr>
+    <tr>
+        <td><input type="text" ng-model="filters.author" ng-model-options="{ debounce: 250 }" ng-change="update()"></td>
+        <td><input type="text" ng-model="filters.title" ng-model-options="{ debounce: 250 }" ng-change="update()"></td>
+    </tr>
     <tr ng-repeat="book in books">
         <td>{{ book.author }}</td>
         <td>{{ book.title }}</td>
